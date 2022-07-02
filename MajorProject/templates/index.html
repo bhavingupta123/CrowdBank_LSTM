@@ -1,0 +1,216 @@
+<html>
+<head>
+<title>Credit Scoring</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+<div class="login-box">
+  <h2>Credit Score Evaluator</h2>
+  <form action="{{ url_for('predict')}}"method="post" id="x">
+
+    <div class="user-box">
+      <select name="1" id="1" required="required">
+        <option disabled selected value> </option>
+        <option value="A11">Less than 0 DM</option>
+        <option value="A12">0 to 200 DM</option>
+        <option value="A13">Greater than 200 DM</option>
+        <option value="A14">No Checking Account</option>
+      </select>
+	  <label for="1">Status of Exisiting Checking Account</label>
+    </div>
+	
+	<div class="user-box">
+      <input type="number" name="2" id="2" required="required" />
+	  <label for="2">Number of Months</label>
+    </div>
+	
+	<div class="user-box">
+      <select name="3" id="3" required="required">
+        <option disabled selected value> </option>
+        <option value="A30">No credits taken/ All Credits paid back duly</option>
+        <option value="A31">All Credits at this bank paid back duly</option>
+        <option value="A32">Existing credits paid back duly till now</option>
+        <option value="A33">Delay in paying off in the past</option>
+        <option value="A34">Critical Account/ Other credits existing (not at this bank)</option>
+      </select>
+	  <label for="3">Credit History</label>
+	  </div>
+
+	<div class="user-box">
+      <select name="4" id="4" required="required">
+        <option disabled selected value></option>
+        <option value="A40">Car (New)</option>
+        <option value="A41">Car (Used)</option>
+        <option value="A42">Furniture / Equipment</option>
+        <option value="A43">Radio / Television</option>
+        <option value="A44">Domestic Appliances</option>
+        <option value="A45">Repairs</option>
+        <option value="A46">Education</option>
+        <option value="A47">Vacation</option>
+        <option value="A48">Retraining</option>
+        <option value="A49">Business</option>
+        <option value="A410">Others</option>
+      </select> 
+      <label for="4">Purpose</label>
+    </div>
+
+    <div class="user-box">
+      <input type="number" name="5" id="5" required="required" /> 
+	  <label for="5">Credit Amount</label>
+	  </div>
+	
+	<div class="user-box">
+      <select name="6" id="6" required="required">
+        <option disabled selected value></option>
+        <option value="A61">Less than 100 DM</option>
+        <option value="A62">100 to 500 DM</option>
+        <option value="A63">500 to 1000 DM</option>
+        <option value="A64">Greater than 1000 DM</option>
+        <option value="A65">Unknown / No Savings Account</option>
+      </select> 
+	  <label for="6">Savings Account/Bonds</label>
+    </div>
+	
+	<div class="user-box">
+      <select name="7" id="7" required="required">
+        <option disabled selected value></option>
+        <option value="A71">Unemployed</option>
+        <option value="A72">Less than 1 year</option>
+        <option value="A73">1 to 4 years</option>
+        <option value="A74">4 to 7 years</option>
+        <option value="A75">Greater than 7 years</option>
+      </select> 
+	   <label for="7">Time Spent in Present Employement</label>
+    </div>
+	
+	<div class="user-box">
+      <input type="number" name="8" id="8" required="required" />
+	  <label for="8">Installment Rate in % of Disposable Income</label>
+    </div>
+	
+	<div class="user-box">
+      <select name="9" id="9" required="required">
+        <option disabled selected value></option>
+        <option value="A91">Male : Divorced/Separated</option>
+        <option value="A92">Female : Divorced/Separated/Married</option>
+        <option value="A93">Male : Single</option>
+        <option value="A94">Male : Married/Widowed</option>
+        <option value="A95">Female : Single</option>
+      </select> 
+	 <label for="9">Personal Status and Sex</label>
+    </div>
+	
+	<div class="user-box">
+      <select name="10" id="10" required="required">
+        <option disabled selected value></option>
+        <option value="A101">None</option>
+        <option value="A102">Co-appliant</option>
+        <option value="A103">Guarantor</option>
+      </select>  
+	<label for="10">Other Debtors / Guarantors</label>
+    </div>
+	
+	<div class="user-box">
+      <input type="number" name="11" id="11" required="required" />
+      <label for="11">Present Residence Since</label>
+    </div>
+	
+	<div class="user-box">
+      <select name="12" id="12" required="required">
+        <option disabled selected value></option>
+        <option value="A121">Real Estate</option>
+        <option value="A122">Building Society Savings Agreement/ Life Insurance</option>
+        <option value="A123">Car or Other</option>
+        <option value="A124">Unknown / No Property</option>
+      </select>
+	  <label for="12">Property</label>
+    </div>
+	  
+	<div class="user-box">
+      <input type="number" name="13" id="13" required="required" />
+      <label for="13">Age</label>
+	</div>
+	
+	<div class="user-box">
+      <select name="14" id="14" required="required">
+        <option disabled selected value></option>
+        <option value="A141">Bank</option>
+        <option value="A142">Stores</option>
+        <option value="A143">None</option>
+      </select> 
+	  <label for="14">Other Installment Plans</label>
+	</div>
+	
+	<div class="user-box">
+      <select name="15" id="15" required="required">
+        <option disabled selected value></option>
+        <option value="A151">Rent</option>
+        <option value="A152">Own</option>
+        <option value="A153">For Free</option>
+      </select>
+	        <label for="15">Housing</label>
+	</div>
+	
+	<div class="user-box">
+      <input type="number" name="16" id="16" required="required" /> 
+      <label for="16">Number of Existing Credits at this Bank</label>	  
+	</div>
+	
+	<div class="user-box">
+
+      <select name="17" id="17" required="required">
+        <option disabled selected value></option>
+        <option value="A171">Unemployed/ Unskilled - Non-Resident</option>
+        <option value="A172">Unskilled - Resident</option>
+        <option value="A173">Skilled Employee / Official</option>
+        <option value="A174">Management / Self-employed / Highly Qualified Employee/ Officer</option>
+      </select>
+	        <label for="17">Job</label>
+	</div>
+	
+	<div class="user-box">
+      <input type="number" name="18" id="18" required="required" />
+	        <label for="18">No. of People being Liable to Provide Maintenance for</label>
+	</div>
+	
+	<div class="user-box">
+      <select name="19" id="19" required="required">
+        <option disabled selected value></option>
+        <option value="A191">None</option>
+        <option value="A192">Yes (Registered under the Customers name)</option>
+      </select>
+	        <label for="19">Telephone</label>
+	</div>
+	
+	<div class="user-box">
+      <select name="20" id="20" required="required">
+        <option disabled selected value></option>
+        <option value="A201">Yes</option>
+        <option value="A202">No</option>
+		</select>
+		      <label for="20">Foreign_Worker</label>
+	</div>
+
+
+	
+  <a href="#" class="btn" onclick="document.getElementById('x').submit();">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Generate Credit Score
+    </a>
+	   <br>
+   <br>
+   <div class="t">
+    {{ prediction_text }}
+  </div>
+  </form>
+</div>
+        <script>
+            function myFunction() {
+                document.getElementById("x").submit();
+            }
+        </script>
+</body>
+</html>
